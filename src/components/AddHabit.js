@@ -96,12 +96,24 @@ export default function AddHabit({ setAddHabit, getHabits }) {
 
     return (
         <AddHabitWindow>
-            <StyledInput placeholder="nome do hábito" value={habit} onChange={e => setHabit(e.target.value)}/>
+            <StyledInput
+                placeholder="nome do hábito"
+                value={habit}
+                disabled={!button}
+                onChange={e =>
+                setHabit(e.target.value)
+            }/>
             <Weekdays>
                 {weekdays.map((weekday, i) => 
+                    button ? 
                     <Weekday 
                         isSelected={weekday.day}
                         onClick={() => weekday.setDay(!weekday.day)}
+                        key={i}
+                    >{weekday.name}</Weekday>
+                    :
+                    <Weekday 
+                        isSelected={weekday.day}
                         key={i}
                     >{weekday.name}</Weekday>
                 )}

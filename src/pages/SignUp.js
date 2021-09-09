@@ -43,21 +43,26 @@ export default function SignUp() {
             <StyledInput
                 placeholder="email" 
                 value={email}
+                disabled={!button}
                 onChange={e => setEmail(e.target.value)}
             />
             <StyledInput
                 type="password"
                 placeholder="senha"
-                value={password} onChange={e => setPassword(e.target.value)}
+                value={password}
+                disabled={!button}
+                onChange={e => setPassword(e.target.value)}
             />
             <StyledInput 
                 placeholder="nome" 
                 value={name}
+                disabled={!button}
                 onChange={e => setName(e.target.value)}
             />
             <StyledInput
                 placeholder="foto"
                 value={image}
+                disabled={!button}
                 onChange={e => setImage(e.target.value)}
             />
             {button ?

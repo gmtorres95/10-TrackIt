@@ -36,12 +36,14 @@ export default function SignIn({ setUser }) {
             <StyledInput
                 placeholder="email"
                 value={email}
+                disabled={!button}
                 onChange={e => setEmail(e.target.value)}
             />
             <StyledInput
                 type="password"
                 placeholder="senha"
                 value={password}
+                disabled={!button}
                 onChange={e => setPassword(e.target.value)}
             />
             {button ?
