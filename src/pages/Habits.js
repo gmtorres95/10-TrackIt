@@ -30,9 +30,21 @@ export default function Habits() {
     return (
         <HabitsBody>
             <Title addButton={true} setAddHabit={setAddHabit}>Meus hábitos</Title>
-            {addHabit ? <AddHabit setAddHabit={setAddHabit}/> : ""}
+            {addHabit ? 
+                <AddHabit
+                    setAddHabit={setAddHabit}
+                    getHabits={getHabits}
+                /> : ""
+            }
             {habits.length > 0 ?
-                habits.map((habit, i) => <Habit key={i} name={habit.name} days={habit.days} />)
+                habits.map((habit, i) => 
+                <Habit
+                    key={i}
+                    name={habit.name}
+                    days={habit.days}
+                    idHabit={habit.id}
+                    getHabits={getHabits}
+                />)
                 :
                 <p>{text}</p>
             }

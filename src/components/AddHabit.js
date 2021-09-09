@@ -9,7 +9,7 @@ import { useContext, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-export default function AddHabit({ setAddHabit }) {
+export default function AddHabit({ setAddHabit, getHabits }) {
     const user = useContext(UserContext);
 
     const [day0, setDay0] = useState(false);
@@ -84,6 +84,7 @@ export default function AddHabit({ setAddHabit }) {
 
         axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits", body, config)
         .then(() => {
+            getHabits();
             setButton(true);
             setAddHabit(false);
         })

@@ -1,7 +1,13 @@
-import styled from "styled-components";
 import { Weekday, Weekdays } from "./styled/Weekdays";
 
-export default function Habit({ name, days }) {
+import UserContext from "../context/UserContext";
+
+import axios from "axios";
+import styled from "styled-components";
+import { useContext } from "react";
+
+export default function Habit({ name, days, idHabit, getHabits }) {
+    const user = useContext(UserContext);
     const weekdays = [
         {
             id: 0,
@@ -33,6 +39,17 @@ export default function Habit({ name, days }) {
         }
     ];
 
+    function deleteHabit() {
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${user.token}`
+            }
+        };
+        axios.delete(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${idHabit}`, config)
+            .then(() => getHabits())
+            .catch(err => alert(err));
+    }
+
     return (
         <HabitBody>
             <HabitTitle>{name}</HabitTitle>
@@ -44,7 +61,10 @@ export default function Habit({ name, days }) {
                     >{weekday.name}</Weekday>
                 )}
             </Weekdays>
-            <ion-icon name="trash-outline" />
+            <ion-icon
+                name="trash-outline"
+                onClick={deleteHabit}
+            />
         </HabitBody>
     );
 }
@@ -71,4 +91,5 @@ const HabitTitle = styled.h1`
     font-family: Lexend Deca;
     font-size: 20px;
     color: #666666;
+    margin-bottom: 8px;
 `;
