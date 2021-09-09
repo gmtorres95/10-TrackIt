@@ -11,6 +11,13 @@ const StyledButton = styled.button`
     color: ${props => props.theme === "white" ? "#52B6FF" : "#FFF"};
     margin: 4px 0px;
     opacity: ${props => props.loading ? 0.7 : 1.0};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+        --ionicon-stroke-width: 64px;
+    }
 `;
 
 export default StyledButton;

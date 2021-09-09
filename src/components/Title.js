@@ -11,7 +11,7 @@ export default function Title({children, addButton, setAddHabit}) {
                     height={35}
                     fontSize={27}
                     onClick={() => setAddHabit(true)}
-                >+</StyledButton> : ""}
+                ><ion-icon name="add-outline" /></StyledButton> : ""}
         </StyledTitle>
     );
 }
