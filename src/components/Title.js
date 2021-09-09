@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import StyledButton from "./styled/StyledButton";
 
-export default function Title({children, addButton}) {
+export default function Title({children, addButton, setAddHabit}) {
     return (
         <StyledTitle>
             {children}
@@ -10,6 +10,7 @@ export default function Title({children, addButton}) {
                     width={40}
                     height={35}
                     fontSize={27}
+                    onClick={() => setAddHabit(true)}
                 >+</StyledButton> : ""}
         </StyledTitle>
     );

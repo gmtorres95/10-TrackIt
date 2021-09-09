@@ -1,12 +1,12 @@
 import Loader from "react-loader-spinner";
 
-export default function Loading() {
+export default function Loading({ height, width }) {
     return (
         <Loader 
             type="ThreeDots"
             color="#FFF"
-            height={43}
-            width={80}
+            height={height}
+            width={width}
         />
     );
 }

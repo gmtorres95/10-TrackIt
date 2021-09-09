@@ -1,13 +1,17 @@
 import Title from "../components/Title";
 
+import AddHabit from "../components/AddHabit";
+
 import styled from "styled-components";
 import { useState } from "react";
 
 export default function Habits() {
+    const [addHabit, setAddHabit] = useState(false);
 
     return (
         <HabitsBody>
-            <Title addButton={true}>Meus hábitos</Title>
+            <Title addButton={true} setAddHabit={setAddHabit}>Meus hábitos</Title>
+            {addHabit ? <AddHabit setAddHabit={setAddHabit}/> : ""}
         </HabitsBody>
     );
 }

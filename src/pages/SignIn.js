@@ -47,7 +47,7 @@ export default function SignIn({ setUser }) {
             {button ?
                 <StyledButton onClick={signIn}>Entrar</StyledButton>
                 :
-                <StyledButton loading={true}><Loading /></StyledButton>
+                <StyledButton loading={true}><Loading height={43} width={80} /></StyledButton>
             }
             <Link to="/cadastro">Não tem uma conta? Cadastre-se!</Link>
         </LoginBody>

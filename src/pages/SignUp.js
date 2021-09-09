@@ -63,7 +63,7 @@ export default function SignUp() {
             {button ?
                 <StyledButton onClick={signUp}>Cadastrar</StyledButton>
                 :
-                <StyledButton loading={true}><Loading /></StyledButton>
+                <StyledButton loading={true}><Loading height={43} width={80}/></StyledButton>
             }
             <Link to="/">Já tem uma conta? Faça login!</Link>
         </LoginBody>

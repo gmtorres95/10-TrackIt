@@ -7,6 +7,7 @@ const StyledInput = styled.input`
     border-radius: 5px;
     font-family: Lexend Deca;
     font-size: 20px;
+    color: #666666;
     padding: 0px 12px;
     box-sizing: border-box;
     margin: 4px auto;
