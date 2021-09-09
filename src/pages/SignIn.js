@@ -1,4 +1,4 @@
-import logo from "../assets/img/logo.png";
+import logo from "../assets/img/logo-1.png";
 import { LoginBody, Input, Button } from "../components/styled/login";
 
 import Loading from "../components/Loading";
