@@ -40,6 +40,8 @@ export default function Habit({ name, days, idHabit, getHabits }) {
     ];
 
     function deleteHabit() {
+        if(!window.confirm("Deseja realmente deletar a tarefa?")) return;
+
         const config = {
             headers: {
                 "Authorization": `Bearer ${user.token}`
