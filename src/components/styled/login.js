@@ -46,6 +46,7 @@ const Button = styled.button`
     font-size: 20px;
     color: #FFF;
     margin: 4px auto;
+    opacity: ${props => props.loading ? 0.7 : 1.0};
 `;
 
 export {

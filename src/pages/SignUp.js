@@ -1,9 +1,11 @@
 import logo from "../assets/img/logo.png";
 import { LoginBody, Input, Button } from "../components/styled/login";
 
+import Loading from "../components/Loading";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function SignUp() {
@@ -12,8 +14,10 @@ export default function SignUp() {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const history = useHistory();
+    const [button, setButton] = useState(true);
     
     function signUp() {
+        setButton(false);
         const body = {
             email,
             name,
@@ -25,7 +29,10 @@ export default function SignUp() {
             alert("Cadastro feito com sucesso!");
             history.push("/");
         })
-        .catch(err => alert(err))
+        .catch(err => {
+            alert(err);
+            setButton(true);
+        })
     }
 
     return (
@@ -35,7 +42,7 @@ export default function SignUp() {
             <Input type="password" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)} />
             <Input placeholder="nome" value={name} onChange={e => setName(e.target.value)} />
             <Input placeholder="foto" value={image} onChange={e => setImage(e.target.value)} />
-            <Button onClick={signUp}>Cadastrar</Button>
+            {button ? <Button onClick={signUp}>Cadastrar</Button> : <Button loading={true}><Loading /></Button>}
             <Link to="/">Já tem uma conta? Faça login!</Link>
         </LoginBody>
     );
