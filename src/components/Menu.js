@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Menu() {
-    
-
     return (
         <Footer>
             <Link to="/habitos">Hábitos</Link>
@@ -44,6 +42,8 @@ const Footer = styled.nav`
     position: fixed;
     bottom: 0;
     left: 0;
+    z-index: 1;
+    background-color: #FFF;
 
     a {
         text-decoration: none;

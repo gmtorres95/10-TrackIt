@@ -1,5 +1,7 @@
 import logo from "../assets/img/logo-1.png";
-import { LoginBody, Input, Button } from "../components/styled/login";
+import LoginBody from "../components/styled/LoginBody";
+import StyledInput from "../components/styled/StyledInput";
+import StyledButton from "../components/styled/StyledButton";
 
 import Loading from "../components/Loading";
 
@@ -38,11 +40,31 @@ export default function SignUp() {
     return (
         <LoginBody>
             <img src={logo} alt="TrackIt" />
-            <Input placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
-            <Input type="password" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)} />
-            <Input placeholder="nome" value={name} onChange={e => setName(e.target.value)} />
-            <Input placeholder="foto" value={image} onChange={e => setImage(e.target.value)} />
-            {button ? <Button onClick={signUp}>Cadastrar</Button> : <Button loading={true}><Loading /></Button>}
+            <StyledInput
+                placeholder="email" 
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+            />
+            <StyledInput
+                type="password"
+                placeholder="senha"
+                value={password} onChange={e => setPassword(e.target.value)}
+            />
+            <StyledInput 
+                placeholder="nome" 
+                value={name}
+                onChange={e => setName(e.target.value)}
+            />
+            <StyledInput
+                placeholder="foto"
+                value={image}
+                onChange={e => setImage(e.target.value)}
+            />
+            {button ?
+                <StyledButton onClick={signUp}>Cadastrar</StyledButton>
+                :
+                <StyledButton loading={true}><Loading /></StyledButton>
+            }
             <Link to="/">Já tem uma conta? Faça login!</Link>
         </LoginBody>
     );
