@@ -9,7 +9,7 @@ import { useContext, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-export default function AddHabit({ setAddHabit, getHabits }) {
+export default function AddHabit({ setAddHabit, getHabits, habitName, setHabitName }) {
     const user = useContext(UserContext);
 
     const [day0, setDay0] = useState(false);
@@ -19,9 +19,8 @@ export default function AddHabit({ setAddHabit, getHabits }) {
     const [day4, setDay4] = useState(false);
     const [day5, setDay5] = useState(false);
     const [day6, setDay6] = useState(false);
-    const [habit, setHabit] = useState("");
-    const selectedDays = [];
     const [button, setButton] = useState(true);
+    const selectedDays = [];
     
     const weekdays = [
         {
@@ -73,7 +72,7 @@ export default function AddHabit({ setAddHabit, getHabits }) {
     function postHabit() {
         setButton(false);
         const body = {
-            name: habit,
+            name: habitName,
             days: selectedDays
         };
         const config = {
@@ -84,6 +83,7 @@ export default function AddHabit({ setAddHabit, getHabits }) {
 
         axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits", body, config)
         .then(() => {
+            setHabitName("");
             getHabits();
             setButton(true);
             setAddHabit(false);
@@ -98,10 +98,10 @@ export default function AddHabit({ setAddHabit, getHabits }) {
         <AddHabitWindow>
             <StyledInput
                 placeholder="nome do hábito"
-                value={habit}
+                value={habitName}
                 disabled={!button}
                 onChange={e =>
-                setHabit(e.target.value)
+                setHabitName(e.target.value)
             }/>
             <Weekdays>
                 {weekdays.map((weekday, i) => 

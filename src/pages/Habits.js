@@ -11,8 +11,8 @@ import axios from "axios";
 export default function Habits() {
     const [addHabit, setAddHabit] = useState(false);
     const [habits, setHabits] = useState([]);
+    const [habitName, setHabitName] = useState("");
     const user = useContext(UserContext);
-    const text = "Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!";
 
     function getHabits() {
         const config = {
@@ -34,6 +34,8 @@ export default function Habits() {
                 <AddHabit
                     setAddHabit={setAddHabit}
                     getHabits={getHabits}
+                    habitName={habitName}
+                    setHabitName={setHabitName}
                 /> : ""
             }
             {habits.length > 0 ?
@@ -46,7 +48,7 @@ export default function Habits() {
                     getHabits={getHabits}
                 />)
                 :
-                <p>{text}</p>
+                <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
             }
         </HabitsBody>
     );
