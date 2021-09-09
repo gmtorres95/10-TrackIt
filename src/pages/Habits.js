@@ -54,7 +54,7 @@ export default function Habits() {
 
 const HabitsBody = styled.div`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     padding: 92px 16px;
     box-sizing: border-box;
     background-color: #F2F2F2;
