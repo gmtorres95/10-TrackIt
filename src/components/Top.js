@@ -7,13 +7,12 @@ import styled from "styled-components";
 
 export default function Top() {
     const user = useContext(UserContext);
+    
     return (
-        <>
-            <Header>
-                <img src={logo} alt="TrackIt" />
-                <Avatar src={user.image} alt="TrackIt" />
-            </Header>
-        </>
+        <Header>
+            <img src={logo} alt="TrackIt" />
+            <Avatar src={user.image} alt="TrackIt" />
+        </Header>
     );
 }
 

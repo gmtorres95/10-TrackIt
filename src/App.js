@@ -3,6 +3,7 @@ import "./assets/css/reset.css";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Top from "./components/Top";
+import Menu from "./components/Menu";
 import UserContext from "./context/UserContext";
 
 import { useState } from "react";
@@ -19,9 +20,13 @@ export default function App() {
                         <SignIn setUser={setUser} />
                     </Route>
                     <Route exact path="/cadastro" component={SignUp} />
-                    <Route exact path="/hoje" component={Top} />
-                    <Route exact path="/habitos" />
-                    <Route exact path="/historico" />
+                    <div>
+                        <Top />
+                        <Menu />
+                        <Route exact path="/hoje" />
+                        <Route exact path="/habitos" />
+                        <Route exact path="/historico" />
+                    </div>
                 </Switch>
             </BrowserRouter>
         </UserContext.Provider>
