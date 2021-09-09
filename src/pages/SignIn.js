@@ -7,7 +7,7 @@ export default function SignIn() {
         <LoginBody>
             <img src={logo} alt="TrackIt" />
             <Input placeholder="email" />
-            <Input placeholder="senha" />
+            <Input type="password" placeholder="senha" />
             <Button>Entrar</Button>
             <Link to="/cadastro">Não tem uma conta? Cadastre-se!</Link>
         </LoginBody>
