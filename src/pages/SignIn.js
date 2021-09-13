@@ -13,8 +13,8 @@ import axios from "axios";
 
 export default function SignIn() {
     const {user, setUser, saveUser} = useContext(UserContext);
-    const [email, setEmail] = useState("gabriel@torres.com");
-    const [password, setPassword] = useState("12345");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const history = useHistory();
     const [button, setButton] = useState(true);
 

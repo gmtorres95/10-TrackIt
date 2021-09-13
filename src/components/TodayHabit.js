@@ -113,4 +113,5 @@ const Check = styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${props => props.isDone ? "#8FC549" : "#EBEBEB"};
+    transition: 300ms;
 `;
