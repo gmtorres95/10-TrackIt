@@ -1,6 +1,7 @@
 import { Weekday, Weekdays } from "./styled/Weekdays";
 
 import UserContext from "../context/UserContext";
+import ProgressContext from "../context/ProgressContext";
 
 import axios from "axios";
 import styled from "styled-components";
@@ -8,6 +9,11 @@ import { useContext } from "react";
 
 export default function Habit({ name, days, idHabit, getHabits }) {
     const user = useContext(UserContext);
+    const {
+        numberOfHabits,
+        setNumberOfHabits
+    } = useContext(ProgressContext);
+
     const weekdays = [
         {
             id: 0,
@@ -48,7 +54,10 @@ export default function Habit({ name, days, idHabit, getHabits }) {
             }
         };
         axios.delete(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${idHabit}`, config)
-            .then(() => getHabits())
+            .then(() => {
+                getHabits();
+                setNumberOfHabits(numberOfHabits - 1);
+            })
             .catch(err => alert(err));
     }
 

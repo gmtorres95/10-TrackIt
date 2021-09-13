@@ -4,6 +4,7 @@ import { Weekdays, Weekday } from "./styled/Weekdays";
 import Loading from "./Loading";
 
 import UserContext from "../context/UserContext";
+import ProgressContext from "../context/ProgressContext";
 
 import { useContext, useState } from "react";
 import styled from "styled-components";
@@ -11,6 +12,10 @@ import axios from "axios";
 
 export default function AddHabit({ setAddHabit, getHabits, habitName, setHabitName }) {
     const user = useContext(UserContext);
+    const {
+        numberOfHabits,
+        setNumberOfHabits
+    } = useContext(ProgressContext);
 
     const [day0, setDay0] = useState(false);
     const [day1, setDay1] = useState(false);
@@ -87,6 +92,7 @@ export default function AddHabit({ setAddHabit, getHabits, habitName, setHabitNa
             getHabits();
             setButton(true);
             setAddHabit(false);
+            setNumberOfHabits(numberOfHabits + 1);
         })
         .catch(err => {
             alert(err);
