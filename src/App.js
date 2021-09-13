@@ -21,12 +21,10 @@ export default function App() {
     const [numberOfHabitsDone, setNumberOfHabitsDone] = useState(0);
 
     return (
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={{user, setUser}}>
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/">
-                        <SignIn setUser={setUser} />
-                    </Route>
+                    <Route exact path="/" component={SignIn} />
                     <Route exact path="/cadastro" component={SignUp} />
                     <ProgressContext.Provider value={{
                         progress,

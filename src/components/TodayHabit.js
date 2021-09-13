@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function TodayHabit({habit}) {
     const [isDone, setIsDone] = useState(habit.done);
-    const user = useContext(UserContext);
+    const {user} = useContext(UserContext);
     const {
         setProgress,
         numberOfHabits,

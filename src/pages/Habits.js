@@ -13,7 +13,7 @@ export default function Habits() {
     const [addHabit, setAddHabit] = useState(false);
     const [habits, setHabits] = useState([]);
     const [habitName, setHabitName] = useState("");
-    const user = useContext(UserContext);
+    const {user} = useContext(UserContext);
 
     function getHabits() {
         const config = {

@@ -6,7 +6,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 
 export default function Top() {
-    const user = useContext(UserContext);
+    const {user} = useContext(UserContext);
     
     return (
         <Header>

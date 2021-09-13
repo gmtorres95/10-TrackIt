@@ -8,7 +8,7 @@ import styled from "styled-components";
 import { useContext } from "react";
 
 export default function Habit({ name, days, idHabit, getHabits }) {
-    const user = useContext(UserContext);
+    const {user} = useContext(UserContext);
     const {
         numberOfHabits,
         setNumberOfHabits

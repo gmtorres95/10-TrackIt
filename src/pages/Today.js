@@ -18,7 +18,7 @@ function returnDate() {
 
 export default function Today() {
     const [todaysHabits, setTodaysHabits] = useState([]);
-    const user = useContext(UserContext);
+    const {user} = useContext(UserContext);
     const {
         progress,
         setNumberOfHabits,

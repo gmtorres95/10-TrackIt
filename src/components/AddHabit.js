@@ -11,7 +11,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 export default function AddHabit({ setAddHabit, getHabits, habitName, setHabitName }) {
-    const user = useContext(UserContext);
+    const {user} = useContext(UserContext);
     const {
         numberOfHabits,
         setNumberOfHabits
