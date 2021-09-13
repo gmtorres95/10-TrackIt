@@ -4,7 +4,7 @@ import Title from "../components/Title";
 export default function History() {
     return (
         <StyledBody>
-            <Title>Histórico</Title>
+            <Title text="Histórico" />
             <p>Em breve você poderá ver o histórico dos seus hábitos aqui!</p>
         </StyledBody>
     );
