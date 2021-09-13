@@ -6,6 +6,8 @@ import UserContext from "../context/UserContext";
 
 import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
+import StyledBody from "../components/StyledBody";
+
 import axios from "axios";
 
 export default function Habits() {
@@ -28,7 +30,7 @@ export default function Habits() {
     useEffect((getHabits), []);
 
     return (
-        <HabitsBody>
+        <StyledBody>
             <Title addButton={true} setAddHabit={setAddHabit}>Meus hábitos</Title>
             {addHabit ? 
                 <AddHabit
@@ -50,21 +52,6 @@ export default function Habits() {
                 :
                 <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
             }
-        </HabitsBody>
+        </StyledBody>
     );
 }
-
-const HabitsBody = styled.div`
-    width: 100%;
-    min-height: 100vh;
-    padding: 92px 16px;
-    box-sizing: border-box;
-    background-color: #F2F2F2;
-
-    p {
-        font-family: Lexend Deca;
-        font-size: 18px;
-        color: #666666;
-        margin-top: 24px;
-    }
-`;

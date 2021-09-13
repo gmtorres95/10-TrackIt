@@ -5,6 +5,7 @@ import SignUp from "./pages/SignUp";
 import Top from "./components/Top";
 import Menu from "./components/Menu";
 import Habits from "./pages/Habits";
+import History from "./pages/History";
 
 import UserContext from "./context/UserContext";
 
@@ -27,7 +28,7 @@ export default function App() {
                         <Menu />
                         <Route exact path="/hoje" />
                         <Route exact path="/habitos" component={Habits}/>
-                        <Route exact path="/historico" />
+                        <Route exact path="/historico" component={History} />
                     </>
                 </Switch>
             </BrowserRouter>
