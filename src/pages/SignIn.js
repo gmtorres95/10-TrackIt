@@ -6,13 +6,13 @@ import Loading from "../components/Loading";
 
 import UserContext from "../context/UserContext";
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function SignIn() {
-    const {user, setUser} = useContext(UserContext);
+    const {user, setUser, saveUser} = useContext(UserContext);
     const [email, setEmail] = useState("gabriel@torres.com");
     const [password, setPassword] = useState("12345");
     const history = useHistory();
@@ -23,7 +23,7 @@ export default function SignIn() {
         const body = {email, password};
         axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login", body)
         .then(resp => {
-            setUser(resp.data);
+            saveUser(resp.data);
             history.push("/hoje");
         })
         .catch(err => {
@@ -31,6 +31,17 @@ export default function SignIn() {
             setButton(true);
         })
     }
+
+    useEffect((() => {
+        setUser({
+            id: localStorage.getItem("id"),
+            image: localStorage.getItem("image"),
+            name: localStorage.getItem("name"),
+            token: localStorage.getItem("token")
+        });
+    }), []);
+
+    if(user.token) history.push("/hoje");
 
     return (
         <LoginBody>

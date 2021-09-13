@@ -9,10 +9,10 @@ import Today from "./pages/Today";
 import History from "./pages/History";
 
 import UserContext from "./context/UserContext";
+import ProgressContext from "./context/ProgressContext";
 
 import { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ProgressContext from "./context/ProgressContext";
 
 export default function App() {
     const [user, setUser] = useState({});
@@ -20,8 +20,16 @@ export default function App() {
     const [numberOfHabits, setNumberOfHabits] = useState(0);
     const [numberOfHabitsDone, setNumberOfHabitsDone] = useState(0);
 
+    function saveUser(resp) {
+        setUser(resp);
+        localStorage.setItem("id", resp.id);
+        localStorage.setItem("image", resp.image);
+        localStorage.setItem("name", resp.name);
+        localStorage.setItem("token", resp.token);
+    }
+
     return (
-        <UserContext.Provider value={{user, setUser}}>
+        <UserContext.Provider value={{user, setUser, saveUser}}>
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={SignIn} />
