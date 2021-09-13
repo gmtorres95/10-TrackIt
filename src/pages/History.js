@@ -1,4 +1,4 @@
-import StyledBody from "../components/StyledBody";
+import StyledBody from "../components/styled/StyledBody";
 import Title from "../components/Title";
 
 export default function History() {

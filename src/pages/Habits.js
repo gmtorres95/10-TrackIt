@@ -1,12 +1,11 @@
 import Title from "../components/Title";
 import AddHabit from "../components/AddHabit";
 import Habit from "../components/Habit";
+import StyledBody from "../components/styled/StyledBody";
 
 import UserContext from "../context/UserContext";
 
-import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
-import StyledBody from "../components/StyledBody";
 
 import axios from "axios";
 
@@ -31,7 +30,11 @@ export default function Habits() {
 
     return (
         <StyledBody>
-            <Title addButton={true} setAddHabit={setAddHabit}>Meus hábitos</Title>
+            <Title
+                addButton={true}
+                setAddHabit={setAddHabit}
+                text="Meus hábitos"
+            />
             {addHabit ? 
                 <AddHabit
                     setAddHabit={setAddHabit}

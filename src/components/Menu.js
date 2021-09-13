@@ -1,16 +1,28 @@
+import ProgressContext from '../context/ProgressContext';
+
 import 'react-circular-progressbar/dist/styles.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useContext } from 'react';
 
 export default function Menu() {
+    const {
+        progress,
+        setProgress,
+        numberOfHabits,
+        numberOfHabitsDone
+    } = useContext(ProgressContext);
+    
+    setProgress(Math.round((numberOfHabitsDone / numberOfHabits) * 100));
+
     return (
         <Footer>
             <Link to="/habitos">Hábitos</Link>
             <Progress to="/hoje">
                 <CircularProgressbar
                     text="Hoje"
-                    value={200/3}
+                    value={progress}
                     strokeWidth={10}
                     background={true}
                     backgroundPadding={6}
