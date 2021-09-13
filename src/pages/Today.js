@@ -47,7 +47,7 @@ export default function Today() {
         <StyledBody>
             <Title 
                 text={date}
-                subtitle={progress === 0 ? "Nenhum hábito concluído ainda" : progress + "% dos hábitos concluídos"}
+                subtitle={progress === 0 || todaysHabits.length === 0 ? "Nenhum hábito concluído ainda" : progress + "% dos hábitos concluídos"}
             />
             {todaysHabits.length > 0 ?
                 todaysHabits.map(habit => <TodayHabit
