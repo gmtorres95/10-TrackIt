@@ -1,6 +1,6 @@
 # <img src="./public/favicon.png" height="24px" />  TrackIt
 
-Manage your habits and create new ones!    
+Track your habits and create new ones!    
 Check the this application in production [here](https://track-it-amber.vercel.app)
 
 ## Technologies
